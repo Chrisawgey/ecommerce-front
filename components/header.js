@@ -10,11 +10,16 @@ const Logo = styled(Link)`
     color: #fff;
     text-decoration: none;
 `;
+const Wrapper = styled.div`
+    display: flex;
+    justify-content: space-between;
+`;
 
 export default function Header() {
     return (
         <StyledHeader>
             <Center>
+                <Wrapper>
                 <Logo href={'/'}>
                     PlaceHolder
                 </Logo>
@@ -25,6 +30,7 @@ export default function Header() {
                     <Link href={'/account'}>Account</Link>
                     <Link href={'/cart'}>Cart (0)</Link>
                 </nav>
+                </Wrapper>
             </Center>
         </StyledHeader>
     );
