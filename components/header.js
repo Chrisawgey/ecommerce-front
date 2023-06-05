@@ -4,11 +4,15 @@ import styled from "styled-components";
 const StyledHeader = styled.header`
     background-color: #222;
 `; 
+const Logo = styled(Link)`
+color: #fff;
+text-decoration: none;
+`
 
 export default function Header() {
     return(
         <StyledHeader>
-            <Link href={'/'}>PlaceHolder</Link>
+            <Logo href={'/'}>PlaceHolder</Logo>
             <nav>
                 <Link href={'/'}>Home</Link>
                 <Link href={'/products'}>All products</Link>
