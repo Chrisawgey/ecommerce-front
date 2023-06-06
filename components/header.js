@@ -16,6 +16,8 @@ const Wrapper = styled.div`
     padding: 20px 0;
 `;
 const StyledNav = styled.nav`
+display: flex;
+gap: 15px;
 `;
 const NavLink = styled(Link)`
 color: #aaa;
