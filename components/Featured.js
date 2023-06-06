@@ -19,30 +19,33 @@ const Desc = styled.p`
 
 const Wrapper = styled.div`
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: .8fr 1.2fr;
     gap: 40px;
     img{
         max-width: 100%
     }
 `;
+const Column = styled.div`
+    display: flex;
+    align-items: center;
+`;
 
 export default function Featured() {
     return (
         <Bg>
-            <Center>
+              <Center>
                 <Wrapper>
-                <div>
-                <Title>Pro anywhere</Title>
-            <Desc>orem ipsum doloe sit wais dhabdflbad
-            dfsfuhdsl dflsd fs, saudghsadsjfh  sa dusfgldf ugudfgdalsjgldjshaldkjshakjfglgforem 
-            sa dusfgldf ugudfgdalsjgldjshaldkjshakjfglgorem ipsum doloe sit wais dhabdflbad
-            dfsfuhdsl dflsd fs, saudghsadsjfh sa dusfgldf ugudfgdalsjgldjshaldkjshakjfglgforem 
-            dfsfuhdsl dflsd fs, saudghsadsjfh sa dusfgldf ugudfgdalsjgldjshaldkjshakjfglg
-            dfsfuhdsl dflsd fs, saudghsadsjfh dfsfuhdsl dflsd fs, saudghsadsjfh </Desc>
-                </div>
-                <div>
+                  <Column>
+                    <div>
+                    <Title>Pro anywhere</Title>
+            <Desc>orem ipsum doloe sit wais dhabdflbd dfsfuhdsl dflsd fs, saudghsadsjfh 
+            dfsfuhdsl dflsd fs, saudghsadsjfh dfsfuhdsl dflsd fs, saudghsadsjfh 
+            dfsfuhdsl dflsd fs, saudghsadsjfh </Desc>
+                    </div>
+                </Column>
+                <Column>
                     <img src="https://chriz-next-ecommerce.s3.amazonaws.com/1686082513730.png" alt="" />
-                </div>
+                </Column>
                 </Wrapper>
             </Center>
          </Bg>
