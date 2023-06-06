@@ -41,11 +41,13 @@ export default function Featured() {
             <Desc>orem ipsum doloe sit wais dhabdflbd dfsfuhdsl dflsd fs, saudghsadsjfh 
             dfsfuhdsl dflsd fs, saudghsadsjfh dfsfuhdsl dflsd fs, saudghsadsjfh 
             dfsfuhdsl dflsd fs, saudghsadsjfh </Desc>
+            <button>Read More</button>
+            <button>Add to cart</button>
                     </div>
-                </Column>
-                <Column>
-                    <img src="https://chriz-next-ecommerce.s3.amazonaws.com/1686082513730.png" alt="" />
-                </Column>
+                   </Column>
+                    <Column>
+                        <img src="https://chriz-next-ecommerce.s3.amazonaws.com/1686082513730.png" alt="" />
+                    </Column>
                 </Wrapper>
             </Center>
          </Bg>
