@@ -43,7 +43,7 @@ export default function Featured() {
             dfsfuhdsl dflsd fs, saudghsadsjfh dfsfuhdsl dflsd fs, saudghsadsjfh 
             dfsfuhdsl dflsd fs, saudghsadsjfh </Desc>
             <button>Read More</button>
-            <PrimaryBtn>Add to cart</PrimaryBtn>
+            <PrimaryBtn size="l">Add to cart</PrimaryBtn>
                     </div>
                    </Column>
                     <Column>
