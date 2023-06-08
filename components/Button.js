@@ -16,6 +16,7 @@ const StyledButton = styled.button`
     `}
     ${props => props.primary && css`
         background-color: #5542F6;
+        border: 1px solid #5542F6;
         color: #fff;
     `}
     ${props => props.size === 'l' && css`

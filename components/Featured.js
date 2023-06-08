@@ -18,7 +18,7 @@ const Desc = styled.p`
     font-size: .8rem;
 `;
 
-const Wrapper = styled.div`
+const ColumnsWrapper = styled.div`
     display: grid;
     grid-template-columns: .9fr 1.1fr;
     gap: 40px;
@@ -30,26 +30,32 @@ const Column = styled.div`
     display: flex;
     align-items: center;
 `;
+const ButtonsWrapper = styled.div`
+    display: flex;
+    gap: 5px;
+`;
 
 export default function Featured() {
     return (
         <Bg>
-              <Center>
-                <Wrapper>
+            <Center>
+                <ColumnsWrapper>
                   <Column>
                     <div>
                     <Title>Pro anywhere</Title>
             <Desc>orem ipsum doloe sit wais dhabdflbd dfsfuhdsl dflsd fs, saudghsadsjfh 
             dfsfuhdsl dflsd fs, saudghsadsjfh dfsfuhdsl dflsd fs, saudghsadsjfh 
             dfsfuhdsl dflsd fs, saudghsadsjfh </Desc>
-            <Button outline blanco size="l">Read More</Button>
-            <Button primary size="l">Add to cart</Button>
+            <ButtonsWrapper>
+                <Button outline blanco size="l">Read More</Button>
+                <Button primary size="l">Add to cart</Button>
+            </ButtonsWrapper>
                     </div>
                    </Column>
                     <Column>
                         <img src="https://chriz-next-ecommerce.s3.amazonaws.com/1686082513730.png" alt="" />
                     </Column>
-                </Wrapper>
+                </ColumnsWrapper>
             </Center>
          </Bg>
     );
