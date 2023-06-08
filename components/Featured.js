@@ -37,14 +37,14 @@ const ButtonsWrapper = styled.div`
     margin-top: 25px;
 `;
 
-export default function Featured() {
+export default function Featured({product}) {
     return (
         <Bg>
             <Center>
                 <ColumnsWrapper>
                   <Column>
                     <div>
-                    <Title>Pro anywhere</Title>
+                    <Title>{product.title}</Title>
             <Desc>orem ipsum doloe sit wais dhabdflbd dfsfuhdsl dflsd fs, saudghsadsjfh 
             dfsfuhdsl dflsd fs, saudghsadsjfh dfsfuhdsl dflsd fs, saudghsadsjfh 
             dfsfuhdsl dflsd fs, saudghsadsjfh </Desc>
