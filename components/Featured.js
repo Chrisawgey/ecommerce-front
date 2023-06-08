@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Center from "./Center";
-import PrimaryBtn from "./PrimaryBtn";
+import Button from "./Button";
 
 const Bg = styled.div`
     background-color: #222;
@@ -42,8 +42,8 @@ export default function Featured() {
             <Desc>orem ipsum doloe sit wais dhabdflbd dfsfuhdsl dflsd fs, saudghsadsjfh 
             dfsfuhdsl dflsd fs, saudghsadsjfh dfsfuhdsl dflsd fs, saudghsadsjfh 
             dfsfuhdsl dflsd fs, saudghsadsjfh </Desc>
-            <button>Read More</button>
-            <PrimaryBtn size="l">Add to cart</PrimaryBtn>
+            <Button>Read More</Button>
+            <Button size="l">Add to cart</Button>
                     </div>
                    </Column>
                     <Column>

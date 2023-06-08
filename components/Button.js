@@ -6,13 +6,14 @@ const StyledButton = styled.button`
     color: #fff;
     padding: 5px 15px;
     border-radius: 6px;
+    cursor: pointer;
     ${props => props.size === 'l' && css`
     font-size: 1.2rem;
     padding: 10px 20px;
     `}
 `;
 
-export default function PrimaryBtn({children,...rest}) {
+export default function Button({children,...rest}) {
     return(
         <StyledButton {...rest}>{children}</StyledButton>
     );
