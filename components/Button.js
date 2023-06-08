@@ -5,9 +5,14 @@ const StyledButton = styled.button`
     padding: 5px 15px;
     border-radius: 6px;
     cursor: pointer;
-    ${props => props.blanco && css`
+    ${props => props.blanco && !props.outline && css`
         background-color: #fff;
         color: #000;
+    `}
+    ${props => props.blanco && props.outline && css`
+        background-color: transparent;
+        color: #fff;
+        border: 1px solid #fff;
     `}
     ${props => props.primary && css`
         background-color: #5542F6;

@@ -42,7 +42,7 @@ export default function Featured() {
             <Desc>orem ipsum doloe sit wais dhabdflbd dfsfuhdsl dflsd fs, saudghsadsjfh 
             dfsfuhdsl dflsd fs, saudghsadsjfh dfsfuhdsl dflsd fs, saudghsadsjfh 
             dfsfuhdsl dflsd fs, saudghsadsjfh </Desc>
-            <Button blanco size="l">Read More</Button>
+            <Button outline blanco size="l">Read More</Button>
             <Button primary size="l">Add to cart</Button>
                     </div>
                    </Column>
