@@ -1,12 +1,18 @@
 import styled, {css} from "styled-components";
 
 const StyledButton = styled.button`
-    background-color: #5542F6;
     border: 0;
-    color: #fff;
     padding: 5px 15px;
     border-radius: 6px;
     cursor: pointer;
+    ${props => props.blanco && css`
+        background-color: #fff;
+        color: #000;
+    `}
+    ${props => props.primary && css`
+        background-color: #5542F6;
+        color: #fff;
+    `}
     ${props => props.size === 'l' && css`
     font-size: 1.2rem;
     padding: 10px 20px;
