@@ -8,6 +8,7 @@ const StyledButton = styled.button`
     display: inline-flex;
     svg{
         height: 16px;
+        margin-right: 5px;
     }
     ${props => props.blanco && !props.outline && css`
         background-color: #fff;
