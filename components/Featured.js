@@ -47,6 +47,7 @@ export default function Featured({product}) {
                     <Title>{product.title}</Title>
             <Desc>{product.description}</Desc>
             <ButtonsWrapper>
+                
                 <Button outline blanco>Read More</Button>
                 <Button primary>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
@@ -58,7 +59,7 @@ export default function Featured({product}) {
                     </div>
                    </Column>
                     <Column>
-                        <img src="https://chriz-next-ecommerce.s3.amazonaws.com/1686082513730.png" alt="" />
+                        <img src="https://chriz-next-ecommerce.s3.amazonaws.com/1686251660098.png" alt="" />
                     </Column>
                 </ColumnsWrapper>
             </Center>
