@@ -21,7 +21,7 @@ const Desc = styled.p`
 
 const ColumnsWrapper = styled.div`
     display: grid;
-    grid-template-columns: .9fr 1.1fr;
+    grid-template-columns: 1.1fr .9fr;
     gap: 40px;
     img{
         max-width: 100%
@@ -45,9 +45,7 @@ export default function Featured({product}) {
                   <Column>
                     <div>
                     <Title>{product.title}</Title>
-            <Desc>orem ipsum doloe sit wais dhabdflbd dfsfuhdsl dflsd fs, saudghsadsjfh 
-            dfsfuhdsl dflsd fs, saudghsadsjfh dfsfuhdsl dflsd fs, saudghsadsjfh 
-            dfsfuhdsl dflsd fs, saudghsadsjfh </Desc>
+            <Desc>{product.description}</Desc>
             <ButtonsWrapper>
                 <Button outline blanco>Read More</Button>
                 <Button primary>
