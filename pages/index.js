@@ -6,12 +6,11 @@ import { Product } from "@/models/Product";
 
 
 export default function HomePage({featuredProduct,newProducts}) {
-  console.log({newProducts});
   return(
     <div>
       <Header />
       <Featured product={featuredProduct} />
-      <NewProducts />
+      <NewProducts products={newProducts} />
     </div>
   );
 }
