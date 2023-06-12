@@ -5,10 +5,10 @@ const ProductsGrid = styled.div`
     grid-template-columns: 1fr 1fr 1fr;
 `;
 
-export default function NewProducts ({newProducts}) {
+export default function NewProducts ({products}) {
     return(
         <ProductsGrid>
-            {newProducts?.length > 0 && newProducts.map(product => (
+            {products?.length > 0 && products.map(product => (
                 <div>{product.title}</div>
             ))}
         </ProductsGrid>
