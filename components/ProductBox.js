@@ -27,6 +27,14 @@ const Title = styled.h2`
     margin: 0;
 `;
 
+const ProductInfoBox = styled.div`
+    margin-top: 10px;
+`;
+
+const PriceRow = styled.div`
+    display: flex;
+`;
+
 export default function ProductBox({_id,title,description,price,images}) {
     return(
     <ProductWrapper>
@@ -35,10 +43,15 @@ export default function ProductBox({_id,title,description,price,images}) {
         <img src={images[0]} alt=""/>
         </div>
         </WhiteBox>
-        <Title>
-            {title}
-        </Title>
-        <Button primary><CartIcon /></Button>
+        <ProductInfoBox>
+            <Title>{title}</Title>
+            <PriceRow>
+                <div>
+                    ${price}
+                </div>
+                    <Button primary><CartIcon /></Button>
+            </PriceRow>
+        </ProductInfoBox>
     </ProductWrapper>
     )
 }
