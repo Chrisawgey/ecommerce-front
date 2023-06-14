@@ -1,4 +1,6 @@
 import styled from "styled-components"
+import Button from "./Button";
+import CartIcon from "./icons/Cart";
 
 const ProductWrapper = styled.div`
 
@@ -7,14 +9,22 @@ const ProductWrapper = styled.div`
 const WhiteBox = styled.div`
     background-color: #fff;
     padding: 20px;
-    height: 150px;
+    height: 120px;
     text-align: center;
     display: flex;
     align-items: center;
+    justify-content: center;
+    border-radius: 10px;
     img{
         max-width: 100%;
-        max-height: 150px;
+        max-height: 80px;
     }
+`;
+
+const Title = styled.h2`
+    font-weight: normal;
+    font-size: .9rem;
+    margin: 0;
 `;
 
 export default function ProductBox({_id,title,description,price,images}) {
@@ -25,7 +35,10 @@ export default function ProductBox({_id,title,description,price,images}) {
         <img src={images[0]} alt=""/>
         </div>
         </WhiteBox>
-        {title}
+        <Title>
+            {title}
+        </Title>
+        <Button primary><CartIcon /></Button>
     </ProductWrapper>
     )
 }
