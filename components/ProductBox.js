@@ -57,7 +57,7 @@ export default function ProductBox({_id,title,description,price,images}) {
                 <Price>
                     ${price}
                 </Price>
-                    <Button primary outline><CartIcon /></Button>
+                    <Button primary outline>Add to cart</Button>
             </PriceRow>
         </ProductInfoBox>
     </ProductWrapper>
