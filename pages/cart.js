@@ -155,28 +155,31 @@ export default function CartPage(){
                         onChange={ev => setEmail(ev.target.value)}/>
                     
                     <CityHolder>
-                        <Input type="text" 
-                            placeholder="City" 
-                            value={city} 
-                            onChange={ev => Setcity(ev.target.value)}/>
-                        <Input type="text" 
-                            placeholder="Postal Code" 
-                            value={postalCode}
-                            name="postalCode"
-                            onChange={ev => setPostalCode(ev.target.value)}/>
+                    <Input type="text" 
+                           placeholder="City" 
+                           value={city} 
+                           onChange={ev => Setcity(ev.target.value)}/>
+                    <Input type="text" 
+                           placeholder="Postal Code" 
+                           value={postalCode}
+                           name="postalCode"
+                           onChange={ev => setPostalCode(ev.target.value)}/>
                     </CityHolder>
                     
                     <Input type="text" 
-                        placeholder="Street Address" 
-                        value={streetAddress} 
-                        name="streetAddress"
-                        onChange={ev => setStreetAddress(ev.target.value)}/>
+                           placeholder="Street Address" 
+                           value={streetAddress} 
+                           name="streetAddress"
+                           onChange={ev => setStreetAddress(ev.target.value)}/>
                     
                     <Input type="text" 
-                        placeholder="Country" 
-                        value={country} 
-                        name="country"
-                        onChange={ev => setCountry(ev.target.value)}/>
+                           placeholder="Country" 
+                           value={country} 
+                           name="country"
+                           onChange={ev => setCountry(ev.target.value)}/>
+                    <input type="hidden" 
+                           name="products" 
+                           value={cartProducts.join(',')} />
                     <Button black block type="submit">Continue To Payment</Button>
                     </form>
                 </Box>
