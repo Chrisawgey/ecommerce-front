@@ -59,6 +59,7 @@ export default function CartPage(){
     const [postalCode,setPostalCode] = useState('');
     const [streetAddress,setStreetAddress] = useState('');
     const [country, setCountry] = useState('');
+    const [isSuccess,setIsSuccess] = useState(false);
     useEffect(() => {
         if (cartProducts.length > 0) {
             axios.post('/api/cart', {ids:cartProducts})
@@ -71,8 +72,12 @@ export default function CartPage(){
     }, [cartProducts]);
 
     useEffect(() => {
-        if (window.location.href.includes('success')) {
-            clearCart();
+        if (typeof window === 'undefined') {
+          return;
+        }
+        if (window?.location.href.includes('success')) {
+          setIsSuccess(true);
+          clearCart();
         }
     }, [])
 
@@ -100,7 +105,7 @@ export default function CartPage(){
         total += price;
     }
 
-    if (window.location.href.includes('success')) {
+    if (isSuccess) {
         return (
             <>
                 <Header />
