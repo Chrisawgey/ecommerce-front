@@ -73,13 +73,13 @@ export default function CartPage(){
 
     useEffect(() => {
         if (typeof window === 'undefined') {
-          return;
+            return;
         }
         if (window?.location.href.includes('success')) {
-          setIsSuccess(true);
-          clearCart();
+            setIsSuccess(true);
+            clearCart();
         }
-    }, [])
+    }, []);
 
     function moreOfThisProduct(id) {
         addProduct(id);
