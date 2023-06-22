@@ -20,7 +20,7 @@ export default async function handler(req,res) {
 
   // Handle the event
   switch (event.type) {
-    case 'payment_intent.succeeded':
+    case 'checkout.session.succeeded':
         const paymentIntentSucceeded = event.data.object;
         console.log(paymentIntentSucceeded);
 
@@ -33,3 +33,6 @@ export default async function handler(req,res) {
 export const config = {
     api: {bodyParser:false,}
 };
+
+//virtue-noble-right-peace
+//acct_1NJMasEQAlTI8Tx5
