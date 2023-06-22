@@ -20,7 +20,7 @@ export default async function handler(req,res) {
 
   // Handle the event
   switch (event.type) {
-    case 'checkout.session.succeeded':
+    case 'checkout.session.completed':
         const paymentIntentSucceeded = event.data.object;
         console.log(paymentIntentSucceeded);
 
