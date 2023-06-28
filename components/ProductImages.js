@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components"
 
 const Image = styled.img`
@@ -18,12 +19,13 @@ const Image = styled.img`
     `;
 
 export default function ProductImages({images}) {
+    const [activeImage,setActivceImage] = useState(images?.[0]);
      return (
         <>
-            <Image src={images?.[0]} />
+            <Image src={activeImage} />
             <ImageButtons>
                 {images.map(image => (
-                    <ImageButton>
+                    <ImageButton onClick={() => setActivceImage(image)}>
                         <Image src={image} alt=""/>
                     </ImageButton>
                 ))}
