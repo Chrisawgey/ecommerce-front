@@ -18,7 +18,7 @@ const CategoryGrid = styled.div`
 
 const CategoryTitle = styled.div`
     display: flex;
-    margin-top: 40px;
+    margin-top: 10px;
     margin-bottom: 0;
     align-items: center;
     gap: 15px;
