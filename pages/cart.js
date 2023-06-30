@@ -30,7 +30,7 @@ const ProductInfoCell = styled.td`
 `;
 
 const ProductImageBox = styled.div`
-    width: 100px;
+    width: 70px;
     height: 100px;
     padding: 2px;
     border: 1px solid rgba(0, 0, 0, 0.1);
@@ -39,11 +39,17 @@ const ProductImageBox = styled.div`
     justify-content: center;
     border-radius: 10px;
     img{
-    max-width: 80px;
-    max-height: 80px;
+    max-width: 60px;
+    max-height: 60px;
     }
     @media screen and (min-width: 768px){
         padding: 10px;
+        width: 100px;
+        height: 100px;
+        img{
+            max-width: 80px;
+            max-height: 80px;
+        }
     }
 `;
 
