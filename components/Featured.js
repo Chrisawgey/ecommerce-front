@@ -28,7 +28,7 @@ const Desc = styled.p`
 
 const ColumnsWrapper = styled.div`
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 2fr;
     gap: 40px;
     img{
         max-width: 100%;
@@ -40,7 +40,7 @@ const ColumnsWrapper = styled.div`
         order: 2;
     }
         @media screen and (min-width: 768px) {
-            grid-template-colomuns: 1.1fr .9fr;
+            grid-template-columns: 1.1fr 0.9fr;
             div:nth-child(1){
                 order: 0;
             }
