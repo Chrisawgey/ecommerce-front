@@ -70,7 +70,7 @@ export default function Header() {
             <Center>
                 <Wrapper>
                 <Logo href={'/'}>
-                    PlaceHolder
+                    Chris's Ecommerce
                 </Logo>
                 <StyledNav mobileNavActive={mobileNavActive}>
                     <NavLink href={'/'}>Home</NavLink>
