@@ -1,8 +1,24 @@
 import Center from "@/components/Center";
 import Header from "@/components/Header";
+import ProductBox from "@/components/ProductBox";
 import Title from "@/components/Title";
 import { Category } from "@/models/Category";
 import { Product } from "@/models/Product";
+import styled from "styled-components";
+
+const CategoryGrid = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    @media screen and (min-width: 768px) {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+`;
+
+const CategoryTitle = styled.h2`
+    margin-top: 40px;
+    margin-bottom: 10px;
+`;
 
 export default function CategoriesPage({mainCategories,categoriesProducts}) {
     return(
@@ -11,12 +27,12 @@ export default function CategoriesPage({mainCategories,categoriesProducts}) {
             <Center>
              {mainCategories.map(cat => (
                 <div>
-                    <h2>{cat.name}</h2>
-                    <div>
+                    <CategoryTitle>{cat.name}</CategoryTitle>
+                    <CategoryGrid>
                         {categoriesProducts[cat._id].map(p => (
-                            <div>{p.title}</div>
+                            <ProductBox {...p} />
                         ))}
-                    </div>
+                    </CategoryGrid>
                 </div>
              ))}
             </Center>
@@ -29,12 +45,11 @@ export async function getServerSideProps() {
     const mainCategories = categories.filter(c => !c.parent);
     const categoriesProducts = {}; // catId => [products]
     for(const mainCat of mainCategories){
-        const mainCatId = mainCat._id
+        const mainCatId = mainCat._id.toString()
         const childCatId = categories
-        .filter(c => c.parent === mainCat)
-        .map(c => c._id);
+        .filter(c => c?.parent?.toString() === mainCatId)
+        .map(c => c._id.toString());
         const categoriesIds = [mainCatId, ...childCatId];
-        console.log({categoriesIds})
         const products = await Product.find({category: categoriesIds}, null,
              {limit:3,sort:{'_id':-1}});
         categoriesProducts[mainCat._id] = products;
