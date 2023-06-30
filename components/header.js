@@ -46,7 +46,7 @@ color: #aaa;
 text-decoration: none;
 padding: 10px 0;
 @media screen and (min-width: 768px) {
-    padding: 0;
+    padding:0;
 }
 `;
 const NavButton = styled.button`
