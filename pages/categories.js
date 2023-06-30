@@ -4,6 +4,7 @@ import ProductBox from "@/components/ProductBox";
 import Title from "@/components/Title";
 import { Category } from "@/models/Category";
 import { Product } from "@/models/Product";
+import Link from "next/link";
 import styled from "styled-components";
 
 const CategoryGrid = styled.div`
@@ -15,9 +16,20 @@ const CategoryGrid = styled.div`
     }
 `;
 
-const CategoryTitle = styled.h2`
+const CategoryTitle = styled.div`
+    display: flex;
     margin-top: 40px;
     margin-bottom: 10px;
+    align-items: center;
+    gap: 15px;
+    a{
+        color:#555;
+    }
+`;
+
+const CategoryWrapper = styled.div`
+    margin-bottom: 40px;
+
 `;
 
 export default function CategoriesPage({mainCategories,categoriesProducts}) {
@@ -26,14 +38,19 @@ export default function CategoriesPage({mainCategories,categoriesProducts}) {
             <Header />
             <Center>
              {mainCategories.map(cat => (
-                <div>
-                    <CategoryTitle>{cat.name}</CategoryTitle>
+                <CategoryWrapper>
+                    <CategoryTitle>
+                        <h2>{cat.name}</h2>
+                        <div>
+                        <Link href={'/category'+cat._id}>Show all</Link>
+                        </div>
+                    </CategoryTitle>
                     <CategoryGrid>
                         {categoriesProducts[cat._id].map(p => (
                             <ProductBox {...p} />
                         ))}
                     </CategoryGrid>
-                </div>
+                </CategoryWrapper>
              ))}
             </Center>
         </>
