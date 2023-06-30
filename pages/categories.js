@@ -29,7 +29,13 @@ export async function getServerSideProps() {
     const mainCategories = categories.filter(c => !c.parent);
     const categoriesProducts = {}; // catId => [products]
     for(const mainCat of mainCategories){
-        const products = await Product.find({category: mainCat._id}, null,
+        const mainCatId = mainCat._id
+        const childCatId = categories
+        .filter(c => c.parent === mainCat)
+        .map(c => c._id);
+        const categoriesIds = [mainCatId, ...childCatId];
+        console.log({categoriesIds})
+        const products = await Product.find({category: categoriesIds}, null,
              {limit:3,sort:{'_id':-1}});
         categoriesProducts[mainCat._id] = products;
     }
