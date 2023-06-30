@@ -19,14 +19,16 @@ const CategoryGrid = styled.div`
 const CategoryTitle = styled.div`
     display: flex;
     margin-top: 40px;
-    margin-bottom: 0px;
+    margin-bottom: 0;
     align-items: center;
     gap: 15px;
     h2{
         margin-bottom: 10px;
+        margin-top: 10px;
     }
     a{
         color:#555;
+        display: inline-block;
     }
 `;
 
@@ -56,14 +58,14 @@ export default function CategoriesPage({mainCategories,categoriesProducts}) {
                     <CategoryTitle>
                         <h2>{cat.name}</h2>
                         <div>
-                        <Link href={'/category'+cat._id}>Show all</Link>
+                        <Link href={'/category/'+cat._id}>Show all</Link>
                         </div>
                     </CategoryTitle>
                     <CategoryGrid>
                         {categoriesProducts[cat._id].map(p => (
                             <ProductBox {...p} />
                         ))}
-                        <ShowAllSquare href={'/category'+cat._id}>
+                        <ShowAllSquare href={'/category/'+cat._id}>
                             Show all &rarr;
                         </ShowAllSquare>
                     </CategoryGrid>
