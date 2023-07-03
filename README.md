@@ -1,4 +1,4 @@
-# Ecommerce Portfolio
+# Ecommerce Project
 
 This is a comprehensive ecommerce portfolio project developed using JavaScript, Next.js, and MongoDB. It serves as a demonstration of my skills and expertise in building dynamic and interactive ecommerce websites.
 
