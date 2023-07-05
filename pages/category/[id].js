@@ -4,6 +4,7 @@ import ProductsGrid from "@/components/ProductsGrid";
 import Title from "@/components/Title";
 import { Category } from "@/models/Category";
 import { Product } from "@/models/Product";
+import { useState } from "react";
 import styled from "styled-components";
 
 const CategoryHeader = styled.div`
@@ -36,6 +37,9 @@ const Filter = styled.div`
 `;
 
 export default function CategoryPage({category,products}) {
+    const [filtersValues,setFilterValues] = useState(
+        category.properties.map(p => ({name:p.name,value:'all'}))
+        );
     return(
         <>
             <Header />
@@ -44,12 +48,12 @@ export default function CategoryPage({category,products}) {
                 <h1>{category.name}</h1>
                 <FiltersWrapper>
                 {category.properties.map(prop => (
-                    <Filter>
+                    <Filter key={prop.name}>
                         <span>{prop.name}:</span>
-                        <select>
+                        <select value={filtersValues.find(f => f.name === prop.name).value}>
                             <option value="all">All</option>
                             {prop.values.map(val => (
-                                <option value={val}>{val}</option>
+                                <option key={val} value={val}>{val}</option>
                             ))}
                         </select>
                     </Filter>
