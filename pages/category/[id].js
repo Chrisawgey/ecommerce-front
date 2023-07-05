@@ -25,7 +25,7 @@ const Filter = styled.div`
     border-radius: 5px;
     display: flex;
     gap: 5px;
-    color: #444;
+    color: #444; 
     select{
         background-color: transparent;
         border: 0;
