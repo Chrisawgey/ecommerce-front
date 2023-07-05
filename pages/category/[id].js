@@ -37,9 +37,17 @@ const Filter = styled.div`
 `;
 
 export default function CategoryPage({category,products}) {
-    const [filtersValues,setFilterValues] = useState(
+    const [filtersValues,setFiltersValues] = useState(
         category.properties.map(p => ({name:p.name,value:'all'}))
         );
+        function handleFilterChange(filterName, filterValue) {
+            setFiltersValues(prev => {
+                return prev.map(p => ({
+                    name:p.name,
+                    value: p.name === filterName ? filterValue : p.value,
+                }));
+            });
+        }
     return(
         <>
             <Header />
@@ -50,7 +58,9 @@ export default function CategoryPage({category,products}) {
                 {category.properties.map(prop => (
                     <Filter key={prop.name}>
                         <span>{prop.name}:</span>
-                        <select value={filtersValues.find(f => f.name === prop.name).value}>
+                        <select 
+                            onChange={ev => handleFilterChange(prop.name, ev.target.value)}
+                            value={filtersValues.find(f => f.name === prop.name).value}>
                             <option value="all">All</option>
                             {prop.values.map(val => (
                                 <option key={val} value={val}>{val}</option>
@@ -71,7 +81,6 @@ export async function getServerSideProps(context) {
     const subCategories = await Category.find({parent:category._id});
     const catIds = [category._id, ...subCategories.map(c => c._id)];
     const products = await Product.find({category:catIds});
-    console.log(category)
     return{
         props:{
             category: JSON.parse(JSON.stringify(category)),
