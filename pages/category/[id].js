@@ -4,7 +4,8 @@ import ProductsGrid from "@/components/ProductsGrid";
 import Title from "@/components/Title";
 import { Category } from "@/models/Category";
 import { Product } from "@/models/Product";
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 const CategoryHeader = styled.div`
@@ -36,7 +37,10 @@ const Filter = styled.div`
 
 `;
 
-export default function CategoryPage({category,products}) {
+export default function CategoryPage({
+    category,subCategories,products:originalProducts
+}) {
+    const [products,setProducts] = useState(originalProducts)
     const [filtersValues,setFiltersValues] = useState(
         category.properties.map(p => ({name:p.name,value:'all'}))
         );
@@ -48,6 +52,17 @@ export default function CategoryPage({category,products}) {
                 }));
             });
         }
+        useEffect(() => {
+            const catIds = [category._id, ...(subCategories?.map(c => c._id) || [])];
+            let url = `/api/products?categories=${catIds.join(',')}`;
+            filtersValues.forEach(f => (
+                url += '&' = f.name + '=' + f.value
+            ));
+            axios.get(url).then (res => {
+                res.data
+            })
+
+        }, [filtersValues])
     return(
         <>
             <Header />
@@ -84,6 +99,7 @@ export async function getServerSideProps(context) {
     return{
         props:{
             category: JSON.parse(JSON.stringify(category)),
+            subCategories: JSON.parse(JSON.stringify(subCategories)),
             products: JSON.parse(JSON.stringify(products)),
         }
     }
