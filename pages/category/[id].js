@@ -95,8 +95,9 @@ export default function CategoryPage({
                     <select 
                     value={sort} 
                     onChange={ev => setSort(ev.target.value)}>
-                        <option value="price_asc">Price - lowest to highest</option>
-                        <option value="price_desc">Price - highest to lowest</option>
+                        <option value="price-asc">Price - lowest to highest</option>
+                        <option value="price-desc">Price - highest to lowest</option>
+                        <option value="_id-desc">Newest First</option>
                     </select>
                 </Filter>
                 </FiltersWrapper>
