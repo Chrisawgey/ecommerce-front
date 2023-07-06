@@ -44,7 +44,8 @@ export default function CategoryPage({
     const [filtersValues,setFiltersValues] = useState(
         category.properties.map(p => ({name:p.name,value:'all'}))
         );
-        const [sort,setSort] = useState('price_desc');
+        const [sort,setSort] = useState('_id-desc');
+        const [loadingProducts,setLoadingProducts] = useState(false);
 
         function handleFilterChange(filterName, filterValue) {
             setFiltersValues(prev => {
@@ -55,6 +56,7 @@ export default function CategoryPage({
             });
         }
         useEffect(() => {
+            setLoadingProducts(true);
             const catIds = [category._id, ...(subCategories?.map(c => c._id) || [])];
             const params = new URLSearchParams;
             params.set('categories', catIds.join(','));
@@ -66,7 +68,9 @@ export default function CategoryPage({
         });
         const url = '/api/products?' + params.toString();
             axios.get(url).then (res => {
-                setProducts(res.data);
+                setTimeout(() => {
+                    setLoadingProducts(false);
+                 }, 1000);
             })
 
         }, [filtersValues, sort]);
@@ -97,12 +101,15 @@ export default function CategoryPage({
                     onChange={ev => setSort(ev.target.value)}>
                         <option value="price-asc">Price - lowest to highest</option>
                         <option value="price-desc">Price - highest to lowest</option>
-                        <option value="_id-desc">Newest First</option>
+                        <option value="_id-desc">newest first</option>
+                        <option value="_id-asc">oldest first</option>
                     </select>
                 </Filter>
                 </FiltersWrapper>
                 </CategoryHeader>
-                <ProductsGrid products={products}/>
+                {!loadingProducts && (
+                    <ProductsGrid products={products}/>
+                )}
             </Center>
         </>
     );
