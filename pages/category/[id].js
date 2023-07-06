@@ -54,12 +54,16 @@ export default function CategoryPage({
         }
         useEffect(() => {
             const catIds = [category._id, ...(subCategories?.map(c => c._id) || [])];
-            let url = `/api/products?categories=${catIds.join(',')}`;
-            filtersValues.forEach(f => (
-                url += '&' = f.name + '=' + f.value
-            ));
+            const params = new URLSearchParams;
+            params.set('categories', catIds.join(','))
+            filtersValues.forEach(f => {
+                if (f.value !== 'all') {
+                    params.set(f.name, f.value);
+                }
+        });
+        const url = '/api/products?' + params.toString();
             axios.get(url).then (res => {
-                res.data
+                setProducts(res.data);
             })
 
         }, [filtersValues])
