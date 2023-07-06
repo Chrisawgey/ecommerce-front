@@ -1,10 +1,12 @@
 import Center from "@/components/Center";
 import Header from "@/components/Header";
 import ProductsGrid from "@/components/ProductsGrid";
+import Spinner from "@/components/Spinner";
 import Title from "@/components/Title";
 import { Category } from "@/models/Category";
 import { Product } from "@/models/Product";
 import axios from "axios";
+import { set } from "mongoose";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 
@@ -40,12 +42,14 @@ const Filter = styled.div`
 export default function CategoryPage({
     category,subCategories,products:originalProducts
 }) {
+    const defaultSorting = '_id-desc';
+    const defaultFilterValues = category.properties
+        .map(p => ({name:p.name, value:'all'}));
     const [products,setProducts] = useState(originalProducts)
-    const [filtersValues,setFiltersValues] = useState(
-        category.properties.map(p => ({name:p.name,value:'all'}))
-        );
-        const [sort,setSort] = useState('_id-desc');
-        const [loadingProducts,setLoadingProducts] = useState(false);
+    const [filtersValues,setFiltersValues] = useState(defaultFilterValues);
+    const [sort,setSort] = useState(defaultSorting);
+    const [loadingProducts,setLoadingProducts] = useState(false);
+    const [filtersChanged,setFilterChanged] = useState(false);
 
         function handleFilterChange(filterName, filterValue) {
             setFiltersValues(prev => {
@@ -54,8 +58,12 @@ export default function CategoryPage({
                     value: p.name === filterName ? filterValue : p.value,
                 }));
             });
+            setFilterChanged(true);
         }
         useEffect(() => {
+            if (!filtersChanged) {
+                return;
+            }
             setLoadingProducts(true);
             const catIds = [category._id, ...(subCategories?.map(c => c._id) || [])];
             const params = new URLSearchParams;
@@ -68,12 +76,11 @@ export default function CategoryPage({
         });
         const url = '/api/products?' + params.toString();
             axios.get(url).then (res => {
-                setTimeout(() => {
-                    setLoadingProducts(false);
-                 }, 1000);
+                setProducts(res.data);
+                setLoadingProducts(false);
             })
 
-        }, [filtersValues, sort]);
+        }, [filtersValues, sort, filtersChanged]);
     return(
         <>
             <Header />
@@ -98,7 +105,10 @@ export default function CategoryPage({
                     <span>Sort:</span>
                     <select 
                     value={sort} 
-                    onChange={ev => setSort(ev.target.value)}>
+                    onChange={ev => {
+                        setSort(ev.target.value);
+                        setFilterChanged(true)
+                        }}>
                         <option value="price-asc">Price - lowest to highest</option>
                         <option value="price-desc">Price - highest to lowest</option>
                         <option value="_id-desc">newest first</option>
@@ -107,9 +117,19 @@ export default function CategoryPage({
                 </Filter>
                 </FiltersWrapper>
                 </CategoryHeader>
-                {!loadingProducts && (
-                    <ProductsGrid products={products}/>
+                {loadingProducts && (
+                    <Spinner fullWidth />
                 )}
+                {!loadingProducts && (
+                    <div>
+                        {products.length > 0 && (
+                            <ProductsGrid products={products}/>
+                        )}
+                        {products.length === 0 && (
+                            <div>Sorry, No Products Found</div>
+                        )}
+                    </div>                
+                    )}
             </Center>
         </>
     );
