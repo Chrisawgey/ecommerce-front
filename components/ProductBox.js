@@ -4,7 +4,7 @@ import CartIcon from "./icons/Cart";
 import Link from "next/link";
 import { useContext } from "react";
 import { CartContext } from "./CartContext";
-import FlyingButton from "react-flying-item";
+import FlyingButton from 'react-flying-item';
 
 const ProductWrapper = styled.div`
 
