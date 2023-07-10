@@ -111,8 +111,8 @@ export default function CategoryPage({
                         }}>
                         <option value="price-asc">Price - lowest to highest</option>
                         <option value="price-desc">Price - highest to lowest</option>
-                        <option value="_id-desc">newest first</option>
-                        <option value="_id-asc">oldest first</option>
+                        <option value="_id-desc">Newest first</option>
+                        <option value="_id-asc">Oldest first</option>
                     </select>
                 </Filter>
                 </FiltersWrapper>
