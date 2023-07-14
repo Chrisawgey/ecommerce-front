@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import Button from "./Button";
+import Button, { ButtonStyle } from "./Button";
 import CartIcon from "./icons/Cart";
 import Link from "next/link";
 import { useContext } from "react";
@@ -59,7 +59,7 @@ const Price = styled.div`
     }
 `;
 
-const StyledFlyingButton = styled(FlyingButton)
+
 
 export default function ProductBox({_id,title,description,price,images}) {
     const {addProduct} = useContext(CartContext);
@@ -80,11 +80,11 @@ export default function ProductBox({_id,title,description,price,images}) {
                     <FlyingButton 
                     src={images?.[0]} 
                     targetTop={'5%'} 
-                    flyingItemStyling={{}}
+                    flyingItemStyling={{
+                        
+                    }}
                     targetLeft={'95%'}>
-                        <Button block onClick={() => addProduct(_id)} primary outline>
                         Add to cart 
-                        </Button>
                     </FlyingButton>
             </PriceRow>
         </ProductInfoBox>
