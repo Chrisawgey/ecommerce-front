@@ -81,12 +81,16 @@ export default function ProductBox({_id,title,description,price,images}) {
                 <Price>
                     ${price}
                 </Price>
-                <ButtonWrapper>
+                <ButtonWrapper onClick={() => addProduct(_id)}>
                 <FlyingButton 
                     src={images?.[0]} 
                     targetTop={'5%'} 
                     flyingItemStyling={{
-                        padding: '5px 15px'
+                        width: 'auto',
+                        height: 'auto',
+                        maxWidth: '60px',
+                        maxHeight: '60px',
+                        borderRadius: 0,
                     }}
                     targetLeft={'95%'}>
                         Add to cart 
