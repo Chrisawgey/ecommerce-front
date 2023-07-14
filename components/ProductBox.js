@@ -59,6 +59,8 @@ const Price = styled.div`
     }
 `;
 
+const StyledFlyingButton = styled(FlyingButton)
+
 export default function ProductBox({_id,title,description,price,images}) {
     const {addProduct} = useContext(CartContext);
     const url = '/products/'+_id;
@@ -77,8 +79,8 @@ export default function ProductBox({_id,title,description,price,images}) {
                 </Price>
                     <FlyingButton 
                     src={images?.[0]} 
-                    flyingItemStyling={{}}
                     targetTop={'5%'} 
+                    flyingItemStyling={{}}
                     targetLeft={'95%'}>
                         <Button block onClick={() => addProduct(_id)} primary outline>
                         Add to cart 
