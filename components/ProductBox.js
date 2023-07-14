@@ -75,7 +75,11 @@ export default function ProductBox({_id,title,description,price,images}) {
                 <Price>
                     ${price}
                 </Price>
-                    <FlyingButton src={images?.[0]} targetTop={'5%'} targetLeft={'95%'}>
+                    <FlyingButton 
+                    src={images?.[0]} 
+                    flyingItemStyling={{}}
+                    targetTop={'5%'} 
+                    targetLeft={'95%'}>
                         <Button block onClick={() => addProduct(_id)} primary outline>
                         Add to cart 
                         </Button>
