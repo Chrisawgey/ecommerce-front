@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useContext } from "react";
 import { CartContext } from "./CartContext";
 import FlyingButton from "react-flying-item";
+import { primary } from "@/lib/colors";
 
 const ProductWrapper = styled.div`
 
@@ -62,6 +63,9 @@ const Price = styled.div`
 const ButtonWrapper = styled.div`
     button{
         ${ButtonStyle}
+        background-color: transparent;
+        border: 1px solid ${primary};
+        color: ${primary};
     }
 `;
 
