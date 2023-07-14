@@ -59,7 +59,11 @@ const Price = styled.div`
     }
 `;
 
-
+const ButtonWrapper = styled.div`
+    button{
+        ${ButtonStyle}
+    }
+`;
 
 export default function ProductBox({_id,title,description,price,images}) {
     const {addProduct} = useContext(CartContext);
@@ -77,15 +81,17 @@ export default function ProductBox({_id,title,description,price,images}) {
                 <Price>
                     ${price}
                 </Price>
-                    <FlyingButton 
+                <ButtonWrapper>
+                <FlyingButton 
                     src={images?.[0]} 
                     targetTop={'5%'} 
                     flyingItemStyling={{
-                        
+                        padding: '5px 15px'
                     }}
                     targetLeft={'95%'}>
                         Add to cart 
                     </FlyingButton>
+                </ButtonWrapper>               
             </PriceRow>
         </ProductInfoBox>
     </ProductWrapper>
