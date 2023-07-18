@@ -60,15 +60,6 @@ const Price = styled.div`
     }
 `;
 
-const FlyingButtonWrapper = styled.div`
-    button{
-        ${ButtonStyle}
-        background-color: transparent;
-        border: 1px solid ${primary};
-        color: ${primary};
-    }
-`;
-
 export default function ProductBox({_id,title,description,price,images}) {
     const {addProduct} = useContext(CartContext);
     const url = '/products/'+_id;
