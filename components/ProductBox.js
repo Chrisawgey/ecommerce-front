@@ -60,7 +60,7 @@ const Price = styled.div`
     }
 `;
 
-const ButtonWrapper = styled.div`
+const FlyingButtonWrapper = styled.div`
     button{
         ${ButtonStyle}
         background-color: transparent;
@@ -85,7 +85,7 @@ export default function ProductBox({_id,title,description,price,images}) {
                 <Price>
                     ${price}
                 </Price>
-                <ButtonWrapper onClick={() => addProduct(_id)}>
+                <FlyingButtonWrapper outline onClick={() => addProduct(_id)}>
                 <FlyingButton 
                     src={images?.[0]} 
                     targetTop={'5%'} 
@@ -99,7 +99,7 @@ export default function ProductBox({_id,title,description,price,images}) {
                     targetLeft={'95%'}>
                         Add to cart 
                     </FlyingButton>
-                </ButtonWrapper>               
+                </FlyingButtonWrapper>               
             </PriceRow>
         </ProductInfoBox>
     </ProductWrapper>
