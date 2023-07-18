@@ -1,7 +1,10 @@
 import styled from "styled-components";
-import { ButtonStyle } from "./Button";
-import { primary } from "@/lib/colors";
-import FlyingButtonOriginal from "react-flying-item";
+import {ButtonStyle} from "@/components/Button";
+import {primary} from "@/lib/colors";
+import {CartContext} from "@/components/CartContext";
+import { useContext } from "react";
+import FlyingButtonOriginal from 'react-flying-item';
+
 
 const FlyingButtonWrapper = styled.div`
     button{
@@ -14,8 +17,9 @@ const FlyingButtonWrapper = styled.div`
 
 
 export default function FlyingButton(props) {
+    const {addProduct} = useContext(CartContext);
     return(
-    <FlyingButtonWrapper>
+    <FlyingButtonWrapper onClick={() => addProduct(props._id)}>
         <FlyingButtonOriginal {...props} 
             targetTop={'5%'} 
                     flyingItemStyling={{
