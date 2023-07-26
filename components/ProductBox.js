@@ -8,7 +8,11 @@ import { primary } from "@/lib/colors";
 import FlyingButton from "./FlyingButton";
 
 const ProductWrapper = styled.div`
-
+    button{
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
 `;
 
 const WhiteBox = styled(Link)`
@@ -20,6 +24,7 @@ const WhiteBox = styled(Link)`
     align-items: center;
     justify-content: center;
     border-radius: 10px;
+    position: relative;
     img{
         max-width: 100%;
         max-height: 80px;
@@ -28,7 +33,7 @@ const WhiteBox = styled(Link)`
 
 const Title = styled(Link)`
     font-weight: normal;
-    font-size: .9rem;
+    font-size:.9rem;
     color: inherit;
     text-decoration: none;
     margin: 0;
@@ -45,7 +50,7 @@ const PriceRow = styled.div`
         gap: 9px;
      }
     align-items: center;
-    justify-content: space-between;
+    justify-content:space-between;
     margin-top: 2px;
 `;
 
