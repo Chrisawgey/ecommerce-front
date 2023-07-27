@@ -79,7 +79,9 @@ export default function ProductBox({_id,title,description,price,images}) {
             <PriceRow>
                 <Price>
                     ${price}
-                    <FlyingButton _id={_id} src={images?.[0]}>Add to Cart</FlyingButton>
+                    <FlyingButton 
+                    _id={_id} src={images?.[0]}>Add to Cart
+                    </FlyingButton>
                 </Price>            
             </PriceRow>
         </ProductInfoBox>
