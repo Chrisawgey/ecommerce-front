@@ -1,6 +1,7 @@
 import Button from "@/components/Button";
 import { CartContext } from "@/components/CartContext";
 import Center from "@/components/Center";
+import FlyingButton from "@/components/FlyingButton";
 import Header from "@/components/Header";
 import ProductImages from "@/components/ProductImages";
 import Title from "@/components/Title";
@@ -8,6 +9,7 @@ import WhiteBox from "@/components/WhiteBox";
 import CartIcon from "@/components/icons/Cart";
 import { mongooseConnect } from "@/lib/mongoose";
 import { Product } from "@/models/Product";
+import { images } from "@/next.config";
 import { useContext } from "react";
 import styled from "styled-components";
 
@@ -44,13 +46,12 @@ export default function ProductPage({product}) {
                         <p>{product.description}</p>
                         <PriceRow>
                             <div>
-                                <Price>
-                                    ${product.price}
-                                </Price>
+                                <Price>${product.price}</Price>
                             </div>
                             <div>
-                                <Button primary onClick={() => addProduct(product._id)}>
-                                <CartIcon/> Add to cart</Button>
+                                <FlyingButton main _id={product._id} src={product.images?.[0]}>
+                                    <CartIcon/> Add to cart
+                                </FlyingButton>
                             </div>
                         </PriceRow>
                     </div>
