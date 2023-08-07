@@ -7,6 +7,7 @@ import { CartContext } from "./CartContext";
 import { primary } from "@/lib/colors";
 import FlyingButton from "./FlyingButton";
 
+
 const ProductWrapper = styled.div`
     button{
     width: 100%;
@@ -64,11 +65,6 @@ const Price = styled.div`
         text-align: left;
     }
 `;
-const ButtonWrapper = styled.div`
-    button{
-        ${ButtonStyle}
-    }
-`;
 
 export default function ProductBox({_id,title,description,price,images}) {
     const url = '/products/'+_id;
@@ -85,17 +81,7 @@ export default function ProductBox({_id,title,description,price,images}) {
                 <Price>
                     ${price}
                 </Price>
-                <ButtonWrapper>
-                <FlyingButton 
-                    src={images?.[0]} 
-                    targetTop={'5%'} 
-                    flyingItemStyling={{
-                        padding: '5px 15px'
-                    }}
-                    targetLeft={'95%'}>
-                 Add to cart
-                </FlyingButton>  
-                </ButtonWrapper>     
+                <FlyingButton>Add to cart</FlyingButton>
             </PriceRow>
         </ProductInfoBox>
     </ProductWrapper>
