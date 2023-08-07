@@ -5,6 +5,7 @@ import ButtonLink from "./ButtonLink";
 import CartIcon from "./icons/Cart";
 import { useContext } from "react";
 import { CartContext } from "./CartContext";
+import FlyingButton from "./FlyingButton";
 
 const Bg = styled.div`
     background-color: #222;
@@ -61,9 +62,6 @@ const ButtonsWrapper = styled.div`
 
 export default function Featured({product}) {
     const {addProduct} = useContext(CartContext);
-    function addFeaturedToCart () {
-        addProduct(product._id);
-    }
     return (
         <Bg>
             <Center>
@@ -74,10 +72,11 @@ export default function Featured({product}) {
             <Desc>{product.description}</Desc>
             <ButtonsWrapper>
             <ButtonLink href={'/products/'+product._id} outline={1} blanco={1}>Read More</ButtonLink>
-                <Button blanco onClick={addFeaturedToCart}>
+            <FlyingButton _id={product._id} src={product.images?.[0]}>
                 <CartIcon />
                 Add to cart
-                </Button>
+            </FlyingButton>
+            
             </ButtonsWrapper>
                     </div>
                    </Column>
