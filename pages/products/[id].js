@@ -6,9 +6,8 @@ import {Product} from "@/models/Product";
 import styled from "styled-components";
 import WhiteBox from "@/components/WhiteBox";
 import ProductImages from "@/components/ProductImages";
-import CartIcon from "@/components/icons/CartIcon";
 import FlyingButton from "@/components/FlyingButton";
-import ProductReviews from "@/components/ProductReviews";
+import CartIcon from "@/components/icons/Cart";
 
 const ColWrapper = styled.div`
   display: grid;
@@ -52,7 +51,6 @@ export default function ProductPage({product}) {
             </PriceRow>
           </div>
         </ColWrapper>
-        <ProductReviews product={product} />
       </Center>
     </>
   );
