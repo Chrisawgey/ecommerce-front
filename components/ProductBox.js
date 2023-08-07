@@ -64,7 +64,11 @@ const Price = styled.div`
         text-align: left;
     }
 `;
-
+const ButtonWrapper = styled.div`
+    button{
+        ${ButtonStyle}
+    }
+`;
 
 export default function ProductBox({_id,title,description,price,images}) {
     const url = '/products/'+_id;
@@ -81,13 +85,17 @@ export default function ProductBox({_id,title,description,price,images}) {
                 <Price>
                     ${price}
                 </Price>
-                <StyledFlyingButton 
+                <ButtonWrapper>
+                <FlyingButton 
                     src={images?.[0]} 
                     targetTop={'5%'} 
-                    flyingItemStyling={{}}
+                    flyingItemStyling={{
+                        padding: '5px 15px'
+                    }}
                     targetLeft={'95%'}>
                  Add to cart
-                </StyledFlyingButton>       
+                </FlyingButton>  
+                </ButtonWrapper>     
             </PriceRow>
         </ProductInfoBox>
     </ProductWrapper>
