@@ -65,6 +65,7 @@ const Price = styled.div`
     }
 `;
 
+
 export default function ProductBox({_id,title,description,price,images}) {
     const url = '/products/'+_id;
     return(
@@ -79,10 +80,14 @@ export default function ProductBox({_id,title,description,price,images}) {
             <PriceRow>
                 <Price>
                     ${price}
-                    <FlyingButton 
-                    _id={_id} src={images?.[0]}>Add to Cart
-                    </FlyingButton>
-                </Price>            
+                </Price>
+                <StyledFlyingButton 
+                    src={images?.[0]} 
+                    targetTop={'5%'} 
+                    flyingItemStyling={{}}
+                    targetLeft={'95%'}>
+                 Add to cart
+                </StyledFlyingButton>       
             </PriceRow>
         </ProductInfoBox>
     </ProductWrapper>
