@@ -25,7 +25,6 @@ const WhiteBox = styled(Link)`
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    position: relative;
     img{
         max-width: 100%;
         max-height: 80px;
@@ -48,11 +47,11 @@ const PriceRow = styled.div`
     display: block;
     @media screen and (min-width: 786px) {
         display: flex;
-        gap: 9px;
+        gap: 5px;
      }
     align-items: center;
     justify-content:space-between;
-    margin-top: 2px;
+    margin-top:2px;
 `;
 
 const Price = styled.div`
