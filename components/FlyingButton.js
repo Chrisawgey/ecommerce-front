@@ -19,6 +19,7 @@ const FlyingButtonWrapper = styled.div`
     `}
     ${props => props.white && `
         background-color: white;
+        border: 1px solid white;
     `}
   }
   `;
