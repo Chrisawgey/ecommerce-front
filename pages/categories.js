@@ -1,11 +1,11 @@
 import Center from "@/components/Center";
 import Header from "@/components/Header";
 import ProductBox from "@/components/ProductBox";
-import Title from "@/components/Title";
 import { Category } from "@/models/Category";
 import { Product } from "@/models/Product";
 import Link from "next/link";
 import styled from "styled-components";
+import { RevealWrapper } from "next-reveal";
 
 const CategoryGrid = styled.div`
     display: grid;
@@ -62,12 +62,16 @@ export default function CategoriesPage({mainCategories,categoriesProducts}) {
                         </div>
                     </CategoryTitle>
                     <CategoryGrid>
-                        {categoriesProducts[cat._id].map(p => (
-                            <ProductBox {...p} />
+                        {categoriesProducts[cat._id].map((p,index) => (
+                            <RevealWrapper delay={index*50}>
+                             <ProductBox {...p} />
+                            </RevealWrapper>
                         ))}
+                        <RevealWrapper delay={categoriesProducts[cat._id].length*50}>
                         <ShowAllSquare href={'/category/'+cat._id}>
                             Show all &rarr;
                         </ShowAllSquare>
+                        </RevealWrapper>
                     </CategoryGrid>
                 </CategoryWrapper>
              ))}
