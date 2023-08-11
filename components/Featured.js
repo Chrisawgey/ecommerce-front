@@ -6,6 +6,7 @@ import CartIcon from "./icons/Cart";
 import { useContext } from "react";
 import { CartContext } from "./CartContext";
 import FlyingButton from "./FlyingButton";
+import { RevealWrapper } from "next-reveal";
 
 const Bg = styled.div`
     background-color: #222;
@@ -63,14 +64,14 @@ const ButtonsWrapper = styled.div`
 `;
 
 export default function Featured({product}) {
-    const {addProduct} = useContext(CartContext);
     return (
         <Bg>
-            <Center>
-                <ColumnsWrapper>
-                  <Column>
-                    <div>
-                    <Title>{product.title}</Title>
+     <Center>
+         <ColumnsWrapper>
+             <Column>
+                <div>
+            <RevealWrapper origin={'left'}>
+            <Title>{product.title}</Title>
             <Desc>{product.description}</Desc>
             <ButtonsWrapper>
             <ButtonLink href={'/products/'+product._id} outline={1} blanco={1}>Read More</ButtonLink>
@@ -79,10 +80,13 @@ export default function Featured({product}) {
                 Add to cart
             </FlyingButton>
             </ButtonsWrapper>
+            </RevealWrapper>
                     </div>
                    </Column>
                     <Column>
+                        <RevealWrapper>
                         <img src="https://chriz-next-ecommerce.s3.amazonaws.com/1686251660098.png" alt="" />
+                        </RevealWrapper>
                     </Column>
                 </ColumnsWrapper>
             </Center>
