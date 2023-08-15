@@ -70,7 +70,7 @@ export default function Featured({product}) {
          <ColumnsWrapper>
              <Column>
                 <div>
-            <RevealWrapper origin={'left'}>
+            <RevealWrapper origin={'left'} delay={0}>
             <Title>{product.title}</Title>
             <Desc>{product.description}</Desc>
             <ButtonsWrapper>
@@ -84,7 +84,7 @@ export default function Featured({product}) {
                     </div>
                    </Column>
                     <Column>
-                        <RevealWrapper>
+                        <RevealWrapper delay={0}>
                         <img src="https://chriz-next-ecommerce.s3.amazonaws.com/1686251660098.png" alt="" />
                         </RevealWrapper>
                     </Column>
