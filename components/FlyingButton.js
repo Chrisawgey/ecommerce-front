@@ -25,7 +25,7 @@ const FlyingButtonWrapper = styled.div`
   @keyframes fly{
     100%{
         top:0;
-        left:100%;
+        left:65%;
         opacity: 0;
         display:none;
         max-width: 50px;
@@ -54,7 +54,6 @@ export default function FlyingButton(props) {
         setTimeout(() => {
             imgRef.current.style.display = 'none';
         }, 1000);
-
     }
     useEffect(() => {
         const interval = setInterval(() => {
@@ -65,10 +64,9 @@ export default function FlyingButton(props) {
             }
         }, 100);
 
-        return () => clearInterval(interval);
+       
+       return () => clearInterval(interval);
     }, [])
-
-      
     return(
         <> 
             <FlyingButtonWrapper
