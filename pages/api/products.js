@@ -10,6 +10,12 @@ export default async function handle(req, res) {
     if (categories) {
         productsQuery.category = categories.split(',');
     }
+    if (phrase) {
+        productsQuery['$or'] = [
+            {title:{$regex:phrase}},
+            {description:{$regex:phrase}},
+        ];
+    }
     if (Object.keys(filters).length > 0) {
         Object.keys(filters).forEach(filterName => {
             productsQuery['properties.' +filterName] = filters[filterName];

@@ -16,7 +16,7 @@ export default function SearchPage() {
     const [phrase,setPhrase] = useState('');
     useEffect(() => {
         if (phrase.length > 0) {
-            axios.get('/api/products?search=' +encodeURIComponent(phrase))
+            axios.get('/api/products?phrase=' +encodeURIComponent(phrase))
                 .then(response => {
                     console.log(response.data);
                 });
