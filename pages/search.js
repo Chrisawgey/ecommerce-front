@@ -13,17 +13,12 @@ const SearchInput = styled(Input)`
 
 export default function SearchPage() {
     const inputRef = useRef();
-    useEffect(() => {
-        if (inputRef.current) {
-            inputRef.current.focus();
-        }
-    }, [])
     return (
         <>
             <Header />
             <Center>
                 <SearchInput 
-                ref={inputRef} 
+                autoFocus
                 placeholder="Search for products..." />
             </Center>
         </>
