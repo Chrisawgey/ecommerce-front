@@ -12,8 +12,8 @@ export default async function handle(req, res) {
     }
     if (phrase) {
         productsQuery['$or'] = [
-            {title:{$regex:phrase}},
-            {description:{$regex:phrase}},
+            {title:{$regex:phrase,$options:'i'}},
+            {description:{$regex:phrase,$options:'i'}},
         ];
     }
     if (Object.keys(filters).length > 0) {
