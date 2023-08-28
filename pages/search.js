@@ -1,6 +1,7 @@
 import Center from "@/components/Center";
 import Header from "@/components/Header";
 import Input from "@/components/Input";
+import ProductsGrid from "@/components/ProductsGrid";
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
@@ -14,11 +15,12 @@ const SearchInput = styled(Input)`
 
 export default function SearchPage() {
     const [phrase,setPhrase] = useState('');
+    const [products,setProducts] = useState([]);
     useEffect(() => {
         if (phrase.length > 0) {
             axios.get('/api/products?phrase=' +encodeURIComponent(phrase))
                 .then(response => {
-                    console.log(response.data);
+                    setProducts(response.data);
                 });
         }
     }, [phrase])
@@ -32,6 +34,7 @@ export default function SearchPage() {
                 value={phrase}
                 onChange={ev => setPhrase(ev.target.value)}
                 placeholder="Search for products..." />
+                <ProductsGrid products={products} />
             </Center>
         </>
     );
