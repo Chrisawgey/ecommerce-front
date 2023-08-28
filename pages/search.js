@@ -18,13 +18,17 @@ export default function SearchPage() {
     const [products,setProducts] = useState([]);
     useEffect(() => {
         if (phrase.length > 0) {
-            axios.get('/api/products?phrase=' +encodeURIComponent(phrase))
+            searchProducts();
+        } else {
+            setProducts([]);
+        }
+    }, [phrase]);
+    function searchProducts() {
+        axios.get('/api/products?phrase=' +encodeURIComponent(phrase))
                 .then(response => {
                     setProducts(response.data);
                 });
-        }
-    }, [phrase])
-    const inputRef = useRef();
+    }
     return (
         <>
             <Header />
