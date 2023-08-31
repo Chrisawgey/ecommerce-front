@@ -11,10 +11,14 @@ import styled from "styled-components";
 const SearchInput = styled(Input)`
     padding: 5px 10px;
     border-radius: 5px;
-    margin: 30px 0 30px;
     font-size: 1.4rem;
+`;
+const InputWrapper = styled.div`
     position: sticky;
-    top: 75px;
+    top: 68px;
+    padding: 5px 0;
+    margin: 25px 0;
+    background-color: #eeeeeeaa;
 `;
 
 export default function SearchPage() {
@@ -43,11 +47,13 @@ export default function SearchPage() {
         <>
             <Header />
             <Center>
-                <SearchInput 
-                autoFocus
-                value={phrase}
-                onChange={ev => setPhrase(ev.target.value)}
-                placeholder="Search for products..." />
+                <InputWrapper>
+                    <SearchInput 
+                    autoFocus
+                    value={phrase}
+                    onChange={ev => setPhrase(ev.target.value)}
+                    placeholder="Search for products..." />
+                </InputWrapper>
                 {!isLoading && phrase != '' &&products.length === 0 && (
                     <h2>No Products Found For Query "{phrase}"</h2>
                 )}
