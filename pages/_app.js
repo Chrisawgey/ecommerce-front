@@ -12,7 +12,8 @@ const GlobalStyles = createGlobalStyle`
   }
 `;
 
-export default function App({ Component, pageProps: {session, ...pageProps} }) {
+export default function App({ Component, pageProps: {session, ...pageProps} }) 
+{
   return (
     <>
       <GlobalStyles />
