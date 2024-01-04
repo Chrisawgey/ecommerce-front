@@ -97,6 +97,14 @@ export default function CartPage(){
             setIsSuccess(true);
             clearCart();
         }
+        axios.get('/api/address').then(response => {
+                setName(response.data.name);
+                setEmail(response.data.email);
+                Setcity(response.data.city);
+                setPostalCode(response.data.postalCode);
+                setStreetAddress(response.data.streetAddress);
+                setCountry(response.data.country);
+        });
     }, []);
 
     function moreOfThisProduct(id) {
@@ -235,7 +243,8 @@ export default function CartPage(){
                            onChange={ev => setCountry(ev.target.value)}/>
                     <Button black block 
                             onClick={goToPayment}>
-                            Continue To Payment</Button>
+                            Continue To Payment
+            </Button>
                 </Box>
                     </RevealWrapper>
                     
