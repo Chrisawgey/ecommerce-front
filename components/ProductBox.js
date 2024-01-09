@@ -6,6 +6,7 @@ import { useContext } from "react";
 import { CartContext } from "./CartContext";
 import { primary } from "@/lib/colors";
 import FlyingButton from "./FlyingButton";
+import HeartOutlineIcon from "./icons/HeartOutlineICon";
 
 
 const ProductWrapper = styled.div`
@@ -25,6 +26,7 @@ const WhiteBox = styled(Link)`
     align-items: center;
     justify-content: center;
     border-radius: 10px;
+    position: relative;
     img{
         max-width: 100%;
         max-height: 80px;
@@ -65,12 +67,29 @@ const Price = styled.div`
     }
 `;
 
+// properties for the wishlist button
+const WishListButton = styled.button`
+    border:0;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top:0;
+    right:0;
+    background:transparent;
+    svg{
+        width: 16px;
+    }
+`;
+
 export default function ProductBox({_id,title,description,price,images}) {
     const url = '/products/'+_id;
     return(
     <ProductWrapper>
         <WhiteBox href={url}>
         <div>
+            <WishListButton>
+             <HeartOutlineIcon />
+            </WishListButton>
         <img src={images?.[0]} alt=""/>
         </div>
         </WhiteBox>
