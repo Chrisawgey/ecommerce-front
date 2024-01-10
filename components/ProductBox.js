@@ -2,7 +2,7 @@ import styled from "styled-components"
 import Button, { ButtonStyle } from "./Button";
 import CartIcon from "./icons/Cart";
 import Link from "next/link";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "./CartContext";
 import { primary } from "@/lib/colors";
 import FlyingButton from "./FlyingButton";
@@ -70,12 +70,19 @@ const Price = styled.div`
 // properties for the wishlist button
 const WishListButton = styled.button`
     border:0;
-    width: 20px;
-    height: 20px;
+    width: 40px !important;
+    height: 40px;
+    padding: 10px;
     position: absolute;
     top:0;
     right:0;
     background:transparent;
+    cursor: pointer;
+    ${props => props.wished ? `
+        color:red;
+    ` : `
+        color:black;
+    `}
     svg{
         width: 16px;
     }
@@ -83,11 +90,17 @@ const WishListButton = styled.button`
 
 export default function ProductBox({_id,title,description,price,images}) {
     const url = '/products/'+_id;
+    const [isWished,setIsWished] = useState(false);
+    function addToWishlist(ev) {
+        ev.preventDefault();       
+        ev.stopPropagation();
+        setIsWished(true);
+    }
     return(
     <ProductWrapper>
         <WhiteBox href={url}>
         <div>
-            <WishListButton>
+            <WishListButton wished={isWished} onClick={addToWishlist}>
              <HeartOutlineIcon />
             </WishListButton>
         <img src={images?.[0]} alt=""/>
