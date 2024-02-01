@@ -83,7 +83,7 @@ export default function ProductReviews({product}) {
       <ColsWrapper>
         <div>
           <WhiteBox>
-            <Subtitle>Add a review</Subtitle>
+            <Subtitle>Add a Review</Subtitle>
             <div>
               <StarsRating onChange={setStars} />
             </div>
@@ -94,7 +94,7 @@ export default function ProductReviews({product}) {
             <Textarea
               value={description}
               onChange={ev => setDescription(ev.target.value)}
-              placeholder="Was it good? Pros? Cons?" />
+              placeholder="Pros? Cons?" />
             <div>
               <Button primary onClick={submitReview}>Submit your review</Button>
             </div>
